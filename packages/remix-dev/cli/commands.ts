@@ -234,3 +234,9 @@ export async function codemod(
     throw error;
   }
 }
+
+export async function dev2(projectDir?: string) {
+  projectDir ??= process.cwd();
+  let config = await readConfig(projectDir);
+  await devServer.serve2(config, 3000);
+}
